@@ -3,7 +3,7 @@
  * @LastEditors: 邱扬
  * @description: page description
  * @Date: 2022-01-27 13:23:33
- * @LastEditTime: 2022-01-28 18:14:57
+ * @LastEditTime: 2022-02-08 10:05:40
  */
 const { resolve } = require('path')
 const { merge } = require('webpack-merge')
@@ -29,6 +29,9 @@ const baseConfig = {
   resolve: {
     extensions: ['.ts', '.vue', '.json', '.js'],
   },
+  devServer: {
+		historyApiFallback:true//解决刷新无法找到文件问题
+	},
   module: {
     rules: [
       {
