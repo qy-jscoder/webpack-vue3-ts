@@ -3,7 +3,7 @@
  * @LastEditors: 邱扬
  * @description: page description
  * @Date: 2022-01-27 13:23:33
- * @LastEditTime: 2022-02-10 13:24:04
+ * @LastEditTime: 2022-02-10 14:05:34
  */
 const { resolve } = require('path')
 const { merge } = require('webpack-merge')
@@ -57,6 +57,17 @@ const baseConfig = {
         test: /\.vue$/, // 处理vue文件，会将lang="ts"的代码，转交给babel-loader
         use: ['vue-loader'],
       },
+      {
+        test: /\.(jpg|png|jpeg)$/,
+        use: {
+          loader: 'url-loader',
+          options: { // 配置参数
+            // 这种配置语法叫做：占位符
+            name: '[name]_[hash].[ext]', // 使用图片的名字，并使用图片的后缀
+            limit: 40960
+          }
+        }
+      }
       // {
       //   test: /\.mjs$/,
       //   include: /node_modules/,

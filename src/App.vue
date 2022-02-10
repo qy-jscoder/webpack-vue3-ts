@@ -3,7 +3,7 @@
  * @LastEditors: 邱扬
  * @description: page description
  * @Date: 2022-01-28 13:28:26
- * @LastEditTime: 2022-02-10 13:37:49
+ * @LastEditTime: 2022-02-10 14:02:54
 -->
 <template>
   <router-view v-slot="{ Component, route }">
@@ -16,6 +16,7 @@
       <edit></edit>
     </el-icon>
   </el-row>
+  <img src="./assets/img/12.jpg" alt="">
 </template>
 <script lang="ts" setup>
 import {
