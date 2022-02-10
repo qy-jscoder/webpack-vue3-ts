@@ -3,16 +3,13 @@
  * @LastEditors: 邱扬
  * @description: page description
  * @Date: 2022-01-27 13:23:33
- * @LastEditTime: 2022-02-10 16:25:35
+ * @LastEditTime: 2022-02-10 18:15:02
  */
 const { resolve } = require('path')
 const { merge } = require('webpack-merge')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const { VueLoaderPlugin } = require('vue-loader')
-// const AutoImport = require('unplugin-auto-import/webpack')
-// const Components = require('unplugin-vue-components/webpack')
-// const { ElementPlusResolver } = require('unplugin-vue-components/resolvers')
 
 const argv = require('minimist')(process.argv.slice(2))
 const { mode } = argv
@@ -29,9 +26,6 @@ const baseConfig = {
   resolve: {
     extensions: ['.ts', '.vue', '.json', '.js'],
   },
-  devServer: {
-		historyApiFallback:true//解决刷新无法找到文件问题
-	},
   module: {
     rules: [
       {
@@ -58,7 +52,7 @@ const baseConfig = {
         use: ['vue-loader'],
       },
       {
-        test: /\.(jpg|png|jpeg)$/,
+        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         use: {
           loader: 'url-loader',
           options: { // 配置参数
@@ -74,10 +68,21 @@ const baseConfig = {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: './index.html',
+      minify: {
+        removeAttributeQuotes: true,
+      },
+      hash: true /*防止缓存*/
     }),
     new VueLoaderPlugin(),
     new WebpackBar(),
-    new FriendlyErrorsWebpackPlugin()
+    new FriendlyErrorsWebpackPlugin({
+      // 成功的时候输出
+      compilationSuccessInfo: {
+        messages: [`Your application is running here: http://localhost:8080`]
+      },
+      // 是否每次都清空控制台
+      clearConsole: true,
+    })
   ],
   mode,
   performance: {
