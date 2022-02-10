@@ -3,7 +3,7 @@
  * @LastEditors: 邱扬
  * @description: page description
  * @Date: 2022-01-27 13:23:33
- * @LastEditTime: 2022-02-10 14:19:50
+ * @LastEditTime: 2022-02-10 16:25:35
  */
 const { resolve } = require('path')
 const { merge } = require('webpack-merge')
@@ -64,7 +64,7 @@ const baseConfig = {
           options: { // 配置参数
             // 这种配置语法叫做：占位符
             name: '[name]_[hash].[ext]', // 使用图片的名字，并使用图片的后缀
-            limit: 40960
+            limit: 10240
           }
         }
       }
