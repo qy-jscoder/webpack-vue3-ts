@@ -3,7 +3,7 @@
  * @LastEditors: 邱扬
  * @description: page description
  * @Date: 2022-01-27 13:23:33
- * @LastEditTime: 2022-02-10 14:05:34
+ * @LastEditTime: 2022-02-10 14:19:50
  */
 const { resolve } = require('path')
 const { merge } = require('webpack-merge')
@@ -68,11 +68,6 @@ const baseConfig = {
           }
         }
       }
-      // {
-      //   test: /\.mjs$/,
-      //   include: /node_modules/,
-      //   type: "javascript/auto"
-      // }
     ],
   },
   plugins: [
@@ -84,7 +79,10 @@ const baseConfig = {
     new WebpackBar(),
     new FriendlyErrorsWebpackPlugin()
   ],
-  mode
+  mode,
+  performance: {
+    hints: false
+  }
 }
 
 module.exports = merge(baseConfig, config)
