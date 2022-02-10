@@ -3,7 +3,7 @@
  * @LastEditors: 邱扬
  * @description: page description
  * @Date: 2022-01-27 13:23:33
- * @LastEditTime: 2022-02-08 10:05:40
+ * @LastEditTime: 2022-02-10 13:24:04
  */
 const { resolve } = require('path')
 const { merge } = require('webpack-merge')
@@ -35,7 +35,7 @@ const baseConfig = {
   module: {
     rules: [
       {
-        test: /\.scss$/,
+        test: /\.(css|scss)$/,
         use: ['style-loader', 'css-loader', 'sass-loader'],
       },
       {

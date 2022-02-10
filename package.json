@@ -11,6 +11,7 @@
   "main": "index.js",
   "dependencies": {
     "@element-plus/icons-vue": "^0.2.7",
+    "element-plus": "^1.0.2-beta.28",
     "vue": "^3.2.29",
     "vue-loader": "^17.0.0",
     "vue-router": "^4.0.12",

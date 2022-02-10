@@ -3,17 +3,18 @@
  * @LastEditors: 邱扬
  * @description: page description
  * @Date: 2022-01-28 13:28:26
- * @LastEditTime: 2022-02-10 11:00:50
+ * @LastEditTime: 2022-02-10 13:37:49
 -->
 <template>
   <router-view v-slot="{ Component, route }">
     <component :is="Component" :key="route.path" />
   </router-view>
-  <el-input v-model="input" placeholder="Please input" @blur="blur" />
+  <el-input v-model="input" placeholder="Please input" @blur="blur" style="margin-top:10px"/>
   <el-button type="text">Text Button</el-button>
   <el-row>
-    <el-button  circle><search /></el-button>
-    <el-button type="primary" circle><edit/></el-button>
+    <el-icon :size="size" :color="color">
+      <edit></edit>
+    </el-icon>
   </el-row>
 </template>
 <script lang="ts" setup>
@@ -31,6 +32,8 @@ const input = ref('')
 const blur = () => {
   console.log(123)
 }
+const size=20
+const color='red'
 </script>
 <style lang="scss" scoped>
 :root {
