@@ -3,14 +3,14 @@
  * @LastEditors: 邱扬
  * @description: page description
  * @Date: 2022-01-28 13:28:26
- * @LastEditTime: 2022-02-10 15:55:08
+ * @LastEditTime: 2022-03-03 13:59:35
 -->
 <template>
   <div>
     <h1>{{ defaultProfile.name }}</h1>
     <router-link to="/child">跳转</router-link>
     <h1>vuex的state中的count：{{ state.count }}</h1>
-    <button @click="state.count++">加一</button>
+    <el-button @click="state.count++">加一</el-button>
     <el-input
       v-model="input"
       placeholder="Please input"
@@ -29,7 +29,6 @@
 </template>
 
 <script lang="ts" setup>
-import { defineComponent } from 'vue'
 import { useStore } from 'vuex'
 import { ref } from 'vue'
 import {
