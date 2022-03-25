@@ -24,7 +24,7 @@
       </el-icon>
       <img src="../assets/img/google.png" alt="google" />
     </div>
-    <img src="../assets/img/12.jpg" alt="icon" class="icon" />
+    <img src="../assets/img/66666.png" alt="icon" class="icon" />
   </div>
 </template>
 
@@ -56,6 +56,16 @@ const input = ref('')
 const blur = () => {
   console.log(123)
 }
+const list = [1, 2, 3, 4].map(function (item) {
+  return item * 2;
+});
+console.log(list);
+
+console.log(Array.from('foo'));
+const str = "Hello world";
+console.log(str.includes("world"));
+
+
 const size = 20
 const color = 'red'
 </script>
@@ -69,7 +79,5 @@ const color = 'red'
   margin-right: 10px;
   margin-left: 10px;
 }
-.icon {
-  width: 100%;
-}
+
 </style>
